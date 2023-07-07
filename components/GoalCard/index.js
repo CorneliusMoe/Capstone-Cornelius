@@ -1,11 +1,12 @@
 import React from "react";
+import { GoalCardButton, GoalCards } from "./GoalCard.style";
 
 export default function GoalCard({ goal }) {
-  const { goalName, specific } = goal;
+  const { goalName } = goal;
 
   return (
-    <div>
-      <button>{goalName}</button>
-    </div>
+    <GoalCards>
+      <GoalCardButton>{goalName}</GoalCardButton>
+    </GoalCards>
   );
 }

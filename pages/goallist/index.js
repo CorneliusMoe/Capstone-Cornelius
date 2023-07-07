@@ -2,11 +2,12 @@ import Link from "next/link";
 import React from "react";
 import GoalCard from "../../components/GoalCard/index";
 import { goals } from "../../lib/data";
+import GoalListHeader from "@/components/GoalListHeader";
 
 export default function GoalList() {
   return (
     <div>
-      <h2>my goals</h2>
+      <GoalListHeader />
       {goals.map((goal) => (
         <GoalCard key={goal.id} goal={goal} />
       ))}
