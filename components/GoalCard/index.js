@@ -4,9 +4,9 @@ import { GoalCardButton, GoalCards } from "./GoalCard.style";
 export default function GoalCard({ goal, onGoalClick }) {
   const { id, goalName } = goal;
 
-  const handleClick = () => {
+  function handleClick() {
     onGoalClick(id);
-  };
+  }
 
   return (
     <GoalCards>
