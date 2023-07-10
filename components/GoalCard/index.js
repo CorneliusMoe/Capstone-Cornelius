@@ -1,12 +1,16 @@
 import React from "react";
 import { GoalCardButton, GoalCards } from "./GoalCard.style";
 
-export default function GoalCard({ goal }) {
-  const { goalName } = goal;
+export default function GoalCard({ goal, onGoalClick }) {
+  const { id, goalName } = goal;
+
+  function handleClick() {
+    onGoalClick(id);
+  }
 
   return (
     <GoalCards>
-      <GoalCardButton>{goalName}</GoalCardButton>
+      <GoalCardButton onClick={handleClick}>{goalName}</GoalCardButton>
     </GoalCards>
   );
 }
