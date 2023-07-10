@@ -18,11 +18,6 @@ const StyledButton = styled.button`
   &:focus {
     outline: none;
   }
-
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
 `;
 
 export default function GoalDetailCard({ goal }) {
