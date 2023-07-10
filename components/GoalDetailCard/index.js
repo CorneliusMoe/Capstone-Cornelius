@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import GoalListHeader from "@/components/GoalListHeader";
 import { styled } from "styled-components";
 
@@ -27,6 +27,11 @@ const StyledButton = styled.button`
 
 export default function GoalDetailCard({ goal }) {
   const { goalName, specific, measurable, achievable, relevant, timely } = goal;
+  const router = useRouter();
+
+  function handleGoBack() {
+    router.push("/goallist");
+  }
 
   return (
     <>
@@ -46,9 +51,7 @@ export default function GoalDetailCard({ goal }) {
           <dd>{timely}</dd>
         </dl>
       </section>
-      <StyledButton>
-        <Link href="/goallist">Back to my Goals</Link>
-      </StyledButton>
+      <StyledButton onClick={handleGoBack}>Back to my Goals</StyledButton>
     </>
   );
 }
