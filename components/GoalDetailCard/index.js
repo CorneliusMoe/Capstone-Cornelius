@@ -36,7 +36,7 @@ export default function GoalDetailCard({ goal }) {
         <dl>
           <dt>Specific</dt>
           <dd>{specific}</dd>
-          <dt>Mesaurable</dt>
+          <dt>Measurable</dt>
           <dd>{measurable}</dd>
           <dt>Achievable</dt>
           <dd>{achievable}</dd>
