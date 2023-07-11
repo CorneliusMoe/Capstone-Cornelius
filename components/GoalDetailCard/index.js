@@ -20,11 +20,16 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function GoalDetailCard({ goal }) {
+export default function GoalDetailCard({ goal, deleteGoal }) {
   const { goalName, specific, measurable, achievable, relevant, timely } = goal;
   const router = useRouter();
 
   function handleGoBack() {
+    router.push("/goallist");
+  }
+
+  function handleDelete() {
+    deleteGoal(goal.id);
     router.push("/goallist");
   }
 
@@ -47,6 +52,7 @@ export default function GoalDetailCard({ goal }) {
         </dl>
       </section>
       <StyledButton onClick={handleGoBack}>Back to my Goals</StyledButton>
+      <StyledButton onClick={handleDelete}>Delete Goal</StyledButton>
     </>
   );
 }

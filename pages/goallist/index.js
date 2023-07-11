@@ -1,22 +1,30 @@
 import Link from "next/link";
 import React from "react";
 import GoalCard from "../../components/GoalCard/index";
-import { goals } from "../../lib/data";
 import GoalListHeader from "@/components/GoalListHeader";
 import { useRouter } from "next/router";
 
-export default function GoalList() {
+export default function GoalList({ goals, deleteGoal }) {
   const router = useRouter();
 
   function handleGoalClick(id) {
     router.push(`/goal/${id}`);
   }
 
+  function handleGoalDelete(id) {
+    deleteGoal(id);
+  }
+
   return (
     <div>
       <GoalListHeader />
       {goals.map((goal) => (
-        <GoalCard key={goal.id} goal={goal} onGoalClick={handleGoalClick} />
+        <GoalCard
+          key={goal.id}
+          goal={goal}
+          onGoalClick={handleGoalClick}
+          onDeleteClick={() => handleGoalDelete(goal.id)}
+        />
       ))}
       <Link href="/">Back to Homepage</Link>
     </div>
