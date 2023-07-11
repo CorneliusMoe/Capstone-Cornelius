@@ -2,6 +2,8 @@ import React from "react";
 import { useRouter } from "next/router";
 import GoalListHeader from "@/components/GoalListHeader";
 import { styled } from "styled-components";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const StyledButton = styled.button`
   padding: 8px 16px;
@@ -29,8 +31,27 @@ export default function GoalDetailCard({ goal, deleteGoal }) {
   }
 
   function handleDelete() {
-    deleteGoal(goal.id);
-    router.push("/goallist");
+    confirmAlert({
+      title: "Confirm to delete",
+      message: "Are you sure you want to delete this goal?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: () => {
+            deleteGoal(goal.id);
+            router.push("/goallist");
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {
+            if (router.asPath.includes("/goal")) {
+              router.push(router.asPath);
+            }
+          },
+        },
+      ],
+    });
   }
 
   return (

@@ -1,5 +1,6 @@
 import GlobalStyle from "../styles";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import { goals } from "../lib/data";
 
 export default function App({ Component, pageProps }) {
@@ -8,6 +9,7 @@ export default function App({ Component, pageProps }) {
   function deleteGoal(id) {
     setGoals((prevGoals) => prevGoals.filter((goal) => goal.id !== id));
   }
+
   return (
     <>
       <GlobalStyle />
