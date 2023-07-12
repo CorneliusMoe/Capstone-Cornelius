@@ -5,6 +5,7 @@ export default function HomePage() {
     <div>
       <h1>Homepage Placeholder</h1>
       <Link href="/goallist">my Goals</Link>
+      <Link href="/formpage">Form</Link>
     </div>
   );
 }
