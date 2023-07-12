@@ -1,4 +1,3 @@
-import React from "react";
 import { GoalCardButton, GoalCards } from "./GoalCard.style";
 
 export default function GoalCard({ goal, onGoalClick }) {

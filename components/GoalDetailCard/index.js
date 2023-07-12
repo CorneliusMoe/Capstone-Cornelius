@@ -1,4 +1,3 @@
-import React from "react";
 import { useRouter } from "next/router";
 import GoalListHeader from "@/components/GoalListHeader";
 import { styled } from "styled-components";

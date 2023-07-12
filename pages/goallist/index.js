@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 import GoalCard from "../../components/GoalCard/index";
 import GoalListHeader from "@/components/GoalListHeader";
 import { useRouter } from "next/router";

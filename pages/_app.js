@@ -1,6 +1,5 @@
 import GlobalStyle from "../styles";
 import { useState } from "react";
-import { useRouter } from "next/router";
 import { goals } from "../lib/data";
 
 export default function App({ Component, pageProps }) {
