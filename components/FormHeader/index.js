@@ -1,9 +1,9 @@
-import { Header, Heading } from "./FormHeader.style";
+import { Header, Headline } from "./FormHeader.style";
 
 export default function FormHeader() {
   return (
     <Header>
-      <Heading>{"create"}</Heading>
+      <Headline>create</Headline>
     </Header>
   );
 }

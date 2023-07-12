@@ -9,7 +9,7 @@ export const Header = styled.div`
   background-color: lightgrey;
 `;
 
-export const Heading = styled.h2`
+export const Headline = styled.h1`
   text-align: center;
   border-bottom: solid;
   border-color: lightblue;
