@@ -1,6 +1,7 @@
 import GlobalStyle from "../styles";
 import { useState } from "react";
 import { goals } from "../lib/data";
+import { uid } from "uid";
 
 export default function App({ Component, pageProps }) {
   const [allGoals, setGoals] = useState(goals);
@@ -9,10 +10,25 @@ export default function App({ Component, pageProps }) {
     setGoals((prevGoals) => prevGoals.filter((goal) => goal.id !== id));
   }
 
+  function addGoal(goalData) {
+    const newGoal = {
+      id: uid(),
+      ...goalData,
+    };
+    setGoals((prevGoals) => [...prevGoals, newGoal]);
+    console.log("addGoal works");
+    console.log(goals);
+  }
+
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} goals={allGoals} deleteGoal={deleteGoal} />
+      <Component
+        {...pageProps}
+        goals={allGoals}
+        deleteGoal={deleteGoal}
+        addGoal={addGoal}
+      />
     </>
   );
 }
