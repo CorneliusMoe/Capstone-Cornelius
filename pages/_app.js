@@ -16,8 +16,6 @@ export default function App({ Component, pageProps }) {
       ...goalData,
     };
     setGoals((prevGoals) => [...prevGoals, newGoal]);
-    console.log("addGoal works");
-    console.log(goals);
   }
 
   return (

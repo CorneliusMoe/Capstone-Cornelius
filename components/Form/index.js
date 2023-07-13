@@ -16,12 +16,10 @@ export default function Form({ addGoal }) {
   function handleChange(event) {
     const { name, value } = event.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
-    console.log("change works");
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Form submitted");
     addGoal(formData);
     resetForm();
     router.push("/goallist");
