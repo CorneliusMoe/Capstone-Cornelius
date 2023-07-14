@@ -1,24 +1,11 @@
-export default function GoalInput({
-  title,
-  description,
-  label,
-  name,
-  value,
-  onChange,
-}) {
+export default function GoalInput({ title, description, label, name }) {
   return (
     <fieldset>
       <legend>{title}</legend>
       <div>
         <p>{description}</p>
         <label htmlFor={name}>{label}</label>
-        <input
-          type="text"
-          id={name}
-          name={name}
-          value={value}
-          onChange={onChange}
-        />
+        <input type="text" id={name} name={name} />
       </div>
     </fieldset>
   );

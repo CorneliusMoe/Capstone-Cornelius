@@ -1,40 +1,17 @@
-import { useState } from "react";
 import { useRouter } from "next/router";
 import GoalInput from "@/components/GoalInput/index";
 
 export default function Form({ addGoal }) {
   const router = useRouter();
-  const [formData, setFormData] = useState({
-    goalName: "",
-    specific: "",
-    measurable: "",
-    achievable: "",
-    relevant: "",
-    timely: "",
-  });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  }
 
   function handleSubmit(event) {
     event.preventDefault();
-    addGoal(formData);
-    resetForm();
+    const formData = new FormData(event.target);
+    const goalData = Object.fromEntries(formData);
+    addGoal(goalData);
     router.push("/goallist");
   }
 
-  function resetForm() {
-    setFormData({
-      goalName: "",
-      specific: "",
-      measurable: "",
-      achievable: "",
-      relevant: "",
-      timely: "",
-    });
-  }
   return (
     <form onSubmit={handleSubmit}>
       <GoalInput
@@ -42,8 +19,6 @@ export default function Form({ addGoal }) {
         description="Choose a title for your goal"
         label="What should the title of my goal be?"
         name="goalName"
-        value={formData.goalName}
-        onChange={handleChange}
       />{" "}
       <GoalInput
         title="Specific"
@@ -52,8 +27,6 @@ export default function Form({ addGoal }) {
   about what your goal is. You know what to do!"
         label="What is my goal?"
         name="specific"
-        value={formData.specific}
-        onChange={handleChange}
       />{" "}
       <GoalInput
         title="Measurable"
@@ -62,8 +35,6 @@ export default function Form({ addGoal }) {
         how much of that thing you need before your wellbeing improves."
         label="How will I measure my progress?"
         name="measurable"
-        value={formData.measurable}
-        onChange={handleChange}
       />{" "}
       <GoalInput
         title="Achievable"
@@ -73,8 +44,6 @@ export default function Form({ addGoal }) {
         halfway there."
         label="Can I achieve my goal?"
         name="achievable"
-        value={formData.achievable}
-        onChange={handleChange}
       />{" "}
       <GoalInput
         title="Relevant"
@@ -83,8 +52,6 @@ export default function Form({ addGoal }) {
         long-term goals."
         label="Why is this goal important to me?"
         name="relevant"
-        value={formData.relevant}
-        onChange={handleChange}
       />{" "}
       <GoalInput
         title="Timely"
@@ -93,8 +60,6 @@ export default function Form({ addGoal }) {
         Be specific, this keeps you accountable and focused."
         label="When will I achieve my goal?"
         name="timely"
-        value={formData.timely}
-        onChange={handleChange}
       />
       <button type="submit">Submit</button>
     </form>
