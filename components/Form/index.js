@@ -1,12 +1,24 @@
+import { useRouter } from "next/router";
 import GoalInput from "@/components/GoalInput/index";
 
-export default function Form() {
+export default function Form({ addGoal }) {
+  const router = useRouter();
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const goalData = Object.fromEntries(formData);
+    addGoal(goalData);
+    router.push("/goallist");
+  }
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <GoalInput
         title="Be S.M.A.R.T."
         description="Choose a title for your goal"
-        label="What am I trying to achieve"
+        label="What should the title of my goal be?"
+        name="goalName"
       />{" "}
       <GoalInput
         title="Specific"
@@ -14,6 +26,7 @@ export default function Form() {
   Review this section if you feel yourself getting off track. Be clear
   about what your goal is. You know what to do!"
         label="What is my goal?"
+        name="specific"
       />{" "}
       <GoalInput
         title="Measurable"
@@ -21,6 +34,7 @@ export default function Form() {
         your progress. Ask yourself what can improve your mental wellbeing and
         how much of that thing you need before your wellbeing improves."
         label="How will I measure my progress?"
+        name="measurable"
       />{" "}
       <GoalInput
         title="Achievable"
@@ -29,6 +43,7 @@ export default function Form() {
         goals into smaller ones. Once you know you can do it you're
         halfway there."
         label="Can I achieve my goal?"
+        name="achievable"
       />{" "}
       <GoalInput
         title="Relevant"
@@ -36,6 +51,7 @@ export default function Form() {
         succeed while staying true to your values and will help you meet more
         long-term goals."
         label="Why is this goal important to me?"
+        name="relevant"
       />{" "}
       <GoalInput
         title="Timely"
@@ -43,6 +59,7 @@ export default function Form() {
         not to be vague about the time in which you should achieve your goal.
         Be specific, this keeps you accountable and focused."
         label="When will I achieve my goal?"
+        name="timely"
       />
       <button type="submit">Submit</button>
     </form>
