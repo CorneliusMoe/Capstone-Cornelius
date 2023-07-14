@@ -5,6 +5,7 @@ import { uid } from "uid";
 
 export default function App({ Component, pageProps }) {
   const [allGoals, setGoals] = useState(goals);
+  const [timelyOption, setTimelyOption] = useState("text");
 
   function deleteGoal(id) {
     setGoals((prevGoals) => prevGoals.filter((goal) => goal.id !== id));
@@ -26,6 +27,8 @@ export default function App({ Component, pageProps }) {
         goals={allGoals}
         deleteGoal={deleteGoal}
         addGoal={addGoal}
+        timelyOption={timelyOption}
+        setTimelyOption={setTimelyOption}
       />
     </>
   );

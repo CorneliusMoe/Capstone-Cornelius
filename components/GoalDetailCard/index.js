@@ -21,7 +21,7 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function GoalDetailCard({ goal, deleteGoal }) {
+export default function GoalDetailCard({ goal, deleteGoal, timelyOption }) {
   const { goalName, specific, measurable, achievable, relevant, timely } = goal;
   const router = useRouter();
 
@@ -53,6 +53,14 @@ export default function GoalDetailCard({ goal, deleteGoal }) {
     });
   }
 
+  function formatTimelyDate(dateString) {
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}.${month}.${year}`;
+  }
+
   return (
     <>
       <GoalListHeader />
@@ -68,7 +76,7 @@ export default function GoalDetailCard({ goal, deleteGoal }) {
           <dt>Relevant</dt>
           <dd>{relevant}</dd>
           <dt>Timely</dt>
-          <dd>{timely}</dd>
+          <dd>{timelyOption === "date" ? formatTimelyDate(timely) : timely}</dd>
         </dl>
       </section>
       <StyledButton onClick={handleGoBack}>Back to my Goals</StyledButton>
