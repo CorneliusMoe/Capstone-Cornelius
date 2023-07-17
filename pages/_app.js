@@ -35,7 +35,7 @@ export default function App({ Component, pageProps }) {
       return updatedGoals;
     });
   }
-  console.log(goals);
+
   return (
     <>
       <GlobalStyle />
