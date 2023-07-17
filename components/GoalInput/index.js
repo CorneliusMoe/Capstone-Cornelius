@@ -7,7 +7,6 @@ export default function GoalInput({
   setTimelyOption,
 }) {
   function handleTimelyOptionChange(event) {
-    console.log(event.target.value); // Add this line
     setTimelyOption(event.target.value);
   }
 

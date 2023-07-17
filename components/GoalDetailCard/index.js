@@ -33,7 +33,6 @@ export default function GoalDetailCard({ goal, deleteGoal }) {
     timelyOption,
   } = goal;
   const router = useRouter();
-  console.log("option", timelyOption);
   function handleGoBack() {
     router.push("/goallist");
   }
@@ -63,7 +62,6 @@ export default function GoalDetailCard({ goal, deleteGoal }) {
   }
 
   function formatTimelyDate(timely) {
-    console.log(timely); // Add this line
     if (timelyOption === "date") {
       const date = new Date(timely);
 
@@ -75,7 +73,6 @@ export default function GoalDetailCard({ goal, deleteGoal }) {
   }
 
   const formattedTimely = formatTimelyDate(timely);
-  console.log(formattedTimely);
 
   return (
     <>
