@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import GoalDetailCard from "@/components/GoalDetailCard";
 
-export default function GoalDetailPage({ goals, deleteGoal }) {
+export default function GoalDetailPage({ goals, deleteGoal, timelyOption }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -11,5 +11,11 @@ export default function GoalDetailPage({ goals, deleteGoal }) {
     return <div>Goal not found.</div>;
   }
 
-  return <GoalDetailCard goal={goal} deleteGoal={deleteGoal} />;
+  return (
+    <GoalDetailCard
+      goal={goal}
+      deleteGoal={deleteGoal}
+      timelyOption={timelyOption}
+    />
+  );
 }

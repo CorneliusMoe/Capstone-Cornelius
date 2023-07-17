@@ -3,6 +3,7 @@ import GoalListHeader from "@/components/GoalListHeader";
 import { styled } from "styled-components";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { format } from "date-fns";
 
 const StyledButton = styled.button`
   padding: 8px 16px;
@@ -22,9 +23,16 @@ const StyledButton = styled.button`
 `;
 
 export default function GoalDetailCard({ goal, deleteGoal }) {
-  const { goalName, specific, measurable, achievable, relevant, timely } = goal;
+  const {
+    goalName,
+    specific,
+    measurable,
+    achievable,
+    relevant,
+    timely,
+    timelyOption,
+  } = goal;
   const router = useRouter();
-
   function handleGoBack() {
     router.push("/goallist");
   }
@@ -53,6 +61,19 @@ export default function GoalDetailCard({ goal, deleteGoal }) {
     });
   }
 
+  function formatTimelyDate(timely) {
+    if (timelyOption === "date") {
+      const date = new Date(timely);
+
+      if (!isNaN(date.getTime())) {
+        return format(date, "dd.MM.yyyy");
+      }
+    }
+    return timely;
+  }
+
+  const formattedTimely = formatTimelyDate(timely);
+
   return (
     <>
       <GoalListHeader />
@@ -68,7 +89,7 @@ export default function GoalDetailCard({ goal, deleteGoal }) {
           <dt>Relevant</dt>
           <dd>{relevant}</dd>
           <dt>Timely</dt>
-          <dd>{timely}</dd>
+          <dd>{formattedTimely}</dd>
         </dl>
       </section>
       <StyledButton onClick={handleGoBack}>Back to my Goals</StyledButton>

@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 
 export const GoalCards = styled.div`
   text-align: center;
+  word-break: break-all;
 `;
 
 export const GoalCardButton = styled.button`

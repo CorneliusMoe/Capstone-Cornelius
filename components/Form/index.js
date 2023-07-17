@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import GoalInput from "@/components/GoalInput/index";
 
-export default function Form({ addGoal }) {
+export default function Form({ addGoal, timelyOption, setTimelyOption }) {
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -60,6 +60,8 @@ export default function Form({ addGoal }) {
         Be specific, this keeps you accountable and focused."
         label="When will I achieve my goal?"
         name="timely"
+        timelyOption={timelyOption}
+        setTimelyOption={setTimelyOption}
       />
       <button type="submit">Submit</button>
     </form>
