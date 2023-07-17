@@ -5,6 +5,7 @@ import { uid } from "uid";
 
 export default function App({ Component, pageProps }) {
   const [allGoals, setGoals] = useState([]);
+  const [timelyOption, setTimelyOption] = useState("text");
 
   useEffect(() => {
     const storedGoals = localStorage.getItem("goals");
@@ -14,7 +15,6 @@ export default function App({ Component, pageProps }) {
       setGoals(goals);
     }
   }, []);
-  const [timelyOption, setTimelyOption] = useState("text");
 
   function deleteGoal(id) {
     setGoals((prevGoals) => {
@@ -28,6 +28,7 @@ export default function App({ Component, pageProps }) {
     const newGoal = {
       id: uid(),
       ...goalData,
+      timelyOption: timelyOption,
     };
     setGoals((prevGoals) => {
       const updatedGoals = [...prevGoals, newGoal];

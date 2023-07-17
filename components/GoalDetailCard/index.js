@@ -3,6 +3,7 @@ import GoalListHeader from "@/components/GoalListHeader";
 import { styled } from "styled-components";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { format } from "date-fns";
 
 const StyledButton = styled.button`
   padding: 8px 16px;
@@ -21,10 +22,18 @@ const StyledButton = styled.button`
   }
 `;
 
-export default function GoalDetailCard({ goal, deleteGoal, timelyOption }) {
-  const { goalName, specific, measurable, achievable, relevant, timely } = goal;
+export default function GoalDetailCard({ goal, deleteGoal }) {
+  const {
+    goalName,
+    specific,
+    measurable,
+    achievable,
+    relevant,
+    timely,
+    timelyOption,
+  } = goal;
   const router = useRouter();
-
+  console.log("option", timelyOption);
   function handleGoBack() {
     router.push("/goallist");
   }
@@ -54,18 +63,19 @@ export default function GoalDetailCard({ goal, deleteGoal, timelyOption }) {
   }
 
   function formatTimelyDate(timely) {
-    const isDate = !isNaN(Date.parse(timely));
-
-    if (isDate) {
+    console.log(timely); // Add this line
+    if (timelyOption === "date") {
       const date = new Date(timely);
-      const day = date.getDate().toString().padStart(2, "0");
-      const month = (date.getMonth() + 1).toString().padStart(2, "0");
-      const year = date.getFullYear();
-      return `${day}.${month}.${year}`;
-    } else {
-      return timely;
+
+      if (!isNaN(date.getTime())) {
+        return format(date, "dd.MM.yyyy");
+      }
     }
+    return timely;
   }
+
+  const formattedTimely = formatTimelyDate(timely);
+  console.log(formattedTimely);
 
   return (
     <>
@@ -82,7 +92,7 @@ export default function GoalDetailCard({ goal, deleteGoal, timelyOption }) {
           <dt>Relevant</dt>
           <dd>{relevant}</dd>
           <dt>Timely</dt>
-          <dd>{timelyOption === "date" ? formatTimelyDate(timely) : timely}</dd>
+          <dd>{formattedTimely}</dd>
         </dl>
       </section>
       <StyledButton onClick={handleGoBack}>Back to my Goals</StyledButton>
