@@ -66,7 +66,7 @@ export default function GoalDetailCard({ goal, deleteGoal, timelyOption }) {
       return timely;
     }
   }
-  console.log(goal);
+
   return (
     <>
       <GoalListHeader />
