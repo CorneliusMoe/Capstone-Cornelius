@@ -3,13 +3,16 @@ export default function GoalInput({
   description,
   label,
   name,
+  value,
+  onChange,
   timelyOption,
   setTimelyOption,
 }) {
   function handleTimelyOptionChange(event) {
-    setTimelyOption(event.target.value);
+    const { value } = event.target;
+    console.log("Timely Option Value:", value);
+    setTimelyOption(value);
   }
-
   const currentDate = new Date().toISOString().split("T")[0];
 
   return (
@@ -39,15 +42,40 @@ export default function GoalInput({
           </div>
         )}
         {name === "timely" && timelyOption === "text" && (
-          <input type="text" id={name} name={name} required />
+          <input
+            type="text"
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required
+          />
         )}
         {name === "timely" && timelyOption === "date" && (
-          <input type="date" id={name} name={name} required min={currentDate} />
+          <input
+            type="date"
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required
+            min={currentDate}
+          />
         )}
         {name !== "timely" && (
-          <input type="text" id={name} name={name} required />
+          <input
+            type="text"
+            id={name}
+            name={name}
+            value={value}
+            onChange={onChange}
+            required
+          />
         )}
       </div>
     </fieldset>
   );
 }
+// export function handleTimelyOptionChange(event, setTimelyOption) {
+//   setTimelyOption(event.target.value);
+// }
