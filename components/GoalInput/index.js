@@ -10,7 +10,6 @@ export default function GoalInput({
 }) {
   function handleTimelyOptionChange(event) {
     const { value } = event.target;
-    console.log("Timely Option Value:", value);
     setTimelyOption(value);
   }
   const currentDate = new Date().toISOString().split("T")[0];
@@ -76,6 +75,3 @@ export default function GoalInput({
     </fieldset>
   );
 }
-// export function handleTimelyOptionChange(event, setTimelyOption) {
-//   setTimelyOption(event.target.value);
-// }

@@ -43,8 +43,6 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
   }
 
   function handleTimelyOptionChangeWrapper(value) {
-    // const { value } = event.target;
-    console.log("handletimely", value);
     setEditedGoal((prevGoal) => ({
       ...prevGoal,
       timelyOption: value,
@@ -63,8 +61,6 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    console.log("Input Field Name:", name);
-    console.log("Input Field Value:", value);
     setEditedGoal((prevGoal) => ({
       ...prevGoal,
       [name]: value,
