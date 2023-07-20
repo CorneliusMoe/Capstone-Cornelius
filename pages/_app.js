@@ -30,8 +30,30 @@ export default function App({ Component, pageProps }) {
       ...goalData,
       timelyOption: timelyOption,
     };
+
+    const existingGoal = allGoals.find((goal) => goal.id === newGoal.id);
+
     setGoals((prevGoals) => {
-      const updatedGoals = [...prevGoals, newGoal];
+      let updatedGoals;
+
+      if (existingGoal) {
+        updatedGoals = prevGoals.map((goal) =>
+          goal.id === newGoal.id ? newGoal : goal
+        );
+      } else {
+        updatedGoals = [...prevGoals, newGoal];
+      }
+
+      localStorage.setItem("goals", JSON.stringify(updatedGoals));
+      return updatedGoals;
+    });
+  }
+
+  function updateGoal(updatedGoal) {
+    setGoals((prevGoals) => {
+      const updatedGoals = prevGoals.map((goal) =>
+        goal.id === updatedGoal.id ? updatedGoal : goal
+      );
       localStorage.setItem("goals", JSON.stringify(updatedGoals));
       return updatedGoals;
     });
@@ -45,6 +67,7 @@ export default function App({ Component, pageProps }) {
         goals={allGoals}
         deleteGoal={deleteGoal}
         addGoal={addGoal}
+        updateGoal={updateGoal}
         timelyOption={timelyOption}
         setTimelyOption={setTimelyOption}
       />
