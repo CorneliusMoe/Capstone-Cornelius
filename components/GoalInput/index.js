@@ -19,7 +19,7 @@ export default function GoalInput({
       <legend>{title}</legend>
       <div>
         <p>{description}</p>
-        <label>{label}</label>
+        <label htmlFor={name}>{label}</label>
         {name === "timely" && (
           <div>
             <input

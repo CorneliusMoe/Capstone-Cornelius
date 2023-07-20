@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { styled } from "styled-components";
 import HomepageHeader from "@/components/HomepageHeader";
+import Quote from "@/components/Quote";
 
 const HomeContainer = styled.main`
   text-align: center;
@@ -31,6 +32,7 @@ export default function HomePage() {
     <>
       <HomeContainer>
         <HomepageHeader />
+        <Quote />
         <Introduction>
           SMART goals set you up for success by making goals specific,
           measurable, achievable, realistic, and timely. The SMART method helps
