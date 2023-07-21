@@ -6,14 +6,12 @@ export const HeaderBar = styled.div`
   padding-top: 1px;
   z-index: 999;
   width: 100%;
-  background-color: #1687a7;
+  background-color: #6096b4;
 `;
 
 export const Headline = styled.h1`
   text-align: center;
-  border-bottom: solid;
-  border-color: #f6f5f5;
   margin-top: 5px;
   margin-bottom: 0px;
-  color: #ffffff;
+  color: #fcfbf4;
 `;

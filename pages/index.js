@@ -11,20 +11,20 @@ const HomeContainer = styled.main`
 const Introduction = styled.p`
   font-size: 16px;
   margin-bottom: 20px;
+  color: #272727;
 `;
 
 const HomeButton = styled.button`
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #93bfcf;
   color: #fff;
   text-decoration: none;
   border-radius: 4px;
   font-size: 16px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #272727;
   cursor: pointer;
-
-  &:hover {
-    background-color: #0056b3;
-  }
 `;
 
 export default function HomePage() {
