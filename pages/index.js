@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { styled } from "styled-components";
-import HomepageHeader from "@/components/HomepageHeader";
+import Header from "@/components/Header";
 import Quote from "@/components/Quote";
 
 const HomeContainer = styled.main`
@@ -31,7 +31,7 @@ export default function HomePage() {
   return (
     <>
       <HomeContainer>
-        <HomepageHeader />
+        <Header title="be S.M.A.R.T." />
         <Quote />
         <Introduction>
           SMART goals set you up for success by making goals specific,
