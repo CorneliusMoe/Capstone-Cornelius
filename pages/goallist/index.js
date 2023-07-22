@@ -1,6 +1,6 @@
 import Link from "next/link";
 import GoalCard from "../../components/GoalCard";
-import GoalListHeader from "@/components/GoalListHeader";
+import Header from "@/components/Header";
 import { useRouter } from "next/router";
 
 export default function GoalList({ goals, deleteGoal, updateGoal }) {
@@ -16,7 +16,7 @@ export default function GoalList({ goals, deleteGoal, updateGoal }) {
 
   return (
     <div>
-      <GoalListHeader />
+      <Header title="my goals" />
       {goals.map((goal) => (
         <GoalCard
           key={goal.id}

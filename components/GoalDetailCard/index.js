@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import GoalListHeader from "@/components/GoalListHeader";
+import Header from "@/components/Header";
 import GoalInput from "@/components/GoalInput";
 import { styled } from "styled-components";
 import { confirmAlert } from "react-confirm-alert";
@@ -117,7 +117,7 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
 
   return (
     <>
-      <GoalListHeader />
+      <Header title="my goal" />
       {isEditing ? (
         <form onSubmit={handleSave}>
           <GoalInput

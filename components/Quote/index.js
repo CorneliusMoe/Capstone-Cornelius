@@ -11,7 +11,7 @@ const QuoteCard = styled.section`
   position: relative;
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
-  color: #ffffff;
+  color: #eee9da;
   padding: 30px 0;
   width: 100%;
   max-width: 500px;
@@ -23,7 +23,7 @@ const QuoteCard = styled.section`
 
   &:after {
     content: "”";
-    color: rgba(255, 255, 255, 1);
+    color: #eee9da;
     font-size: 10rem;
     line-height: 0;
     position: absolute;
@@ -34,7 +34,7 @@ const QuoteCard = styled.section`
 
 const StyledQuote = styled.h2`
   position: relative;
-  color: #ffffff;
+  color: #6096b4;
   font-size: 40px;
   font-weight: 800;
   line-height: 1;
@@ -44,7 +44,7 @@ const StyledQuote = styled.h2`
 
 const StyledAuthor = styled.h3`
   position: relative;
-  color: #292a2b;
+  color: #fcfbf4;
   font-size: 1.4rem;
   font-weight: normal;
   line-height: 1;

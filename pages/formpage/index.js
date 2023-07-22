@@ -1,5 +1,5 @@
 import Form from "@/components/Form";
-import FormHeader from "@/components/FormHeader";
+import Header from "@/components/Header";
 
 export default function FormPage({ addGoal, timelyOption, setTimelyOption }) {
   function handleAddGoal(goalData) {
@@ -8,7 +8,7 @@ export default function FormPage({ addGoal, timelyOption, setTimelyOption }) {
 
   return (
     <>
-      <FormHeader />
+      <Header title="create" />
       <Form
         addGoal={handleAddGoal}
         timelyOption={timelyOption}
