@@ -16,6 +16,7 @@ const Introduction = styled.p`
 
 const HomeButton = styled.button`
   padding: 10px 20px;
+  margin-top: 40px;
   background-color: #93bfcf;
   color: #fff;
   text-decoration: none;
@@ -41,9 +42,6 @@ export default function HomePage() {
         </Introduction>
         <Link href="/formpage">
           <HomeButton>Be S.M.A.R.T. today</HomeButton>
-        </Link>{" "}
-        <Link href="/goallist">
-          <HomeButton>my Goals</HomeButton>
         </Link>
       </HomeContainer>
     </>

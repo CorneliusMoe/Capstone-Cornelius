@@ -3,7 +3,7 @@ import useSWR from "swr";
 
 const QuoteCardWrapper = styled.div`
   display: flex;
-  height: 50vh;
+  height: 45vh;
   padding: 0 20px;
 `;
 
@@ -11,7 +11,7 @@ const QuoteCard = styled.section`
   position: relative;
   font-family: "Montserrat", sans-serif;
   font-weight: 800;
-  color: #eee9da;
+  color: #93bfcf;
   padding: 30px 0;
   width: 100%;
   max-width: 500px;
@@ -23,7 +23,7 @@ const QuoteCard = styled.section`
 
   &:after {
     content: "”";
-    color: #eee9da;
+    color: #93bfcf;
     font-size: 10rem;
     line-height: 0;
     position: absolute;
@@ -44,7 +44,7 @@ const StyledQuote = styled.h2`
 
 const StyledAuthor = styled.h3`
   position: relative;
-  color: #fcfbf4;
+  color: #272727;
   font-size: 1.4rem;
   font-weight: normal;
   line-height: 1;
