@@ -40,7 +40,7 @@ export default function HomePage() {
           push you further, gives you a sense of direction, and helps you
           organize and reach your goals.
         </Introduction>
-        <StyledLink href="/formpage">Be S.M.A.R.T. today</StyledLink>
+        <StyledLink href="/create">Be S.M.A.R.T. today</StyledLink>
       </HomeContainer>
     </>
   );
