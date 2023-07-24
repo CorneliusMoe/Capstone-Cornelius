@@ -140,10 +140,13 @@ export default function BurgerMenu() {
             <StyledLink href="/">Home</StyledLink>
           </MenuItem>
           <MenuItem>
-            <StyledLink href="/formpage">create</StyledLink>
+            <StyledLink href="/formpage">Create</StyledLink>
           </MenuItem>
           <MenuItem>
-            <StyledLink href="/goallist">my goals</StyledLink>
+            <StyledLink href="/goallist">My goals</StyledLink>
+          </MenuItem>
+          <MenuItem>
+            <StyledLink href="/mindfulness">Exercises</StyledLink>
           </MenuItem>
         </MenuList>
       )}
