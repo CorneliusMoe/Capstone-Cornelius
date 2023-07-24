@@ -35,7 +35,7 @@ const StyledParagraph = styled.p`
 `;
 
 const StyledCategory = styled.p`
-  color: #888;
+  color: #7d7d7d;
   font-size: 15px;
   margin-top: 8px;
 `;
