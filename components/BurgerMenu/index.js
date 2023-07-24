@@ -57,7 +57,7 @@ const MenuList = styled.ul`
     ${({ $isOpen }) => ($isOpen ? fadeIn : "")} 0.9s ease forwards;
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
 
-  @media (max-width: 375px) {
+  @media (min-width: 375px) and (max-width: 768px) {
     width: 100vw;
     height: 100vw;
     left: 0;
@@ -85,7 +85,7 @@ const MenuItem = styled.li`
   cursor: pointer;
   transition: background-color 0.3s ease;
 
-  @media (max-width: 375px) {
+  @media (min-width: 375px) and (max-width: 768px) {
     padding-left: 0;
     border: none;
   }
