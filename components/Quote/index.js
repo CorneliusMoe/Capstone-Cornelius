@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import useSWR from "swr";
 
 const QuoteCardWrapper = styled.div`

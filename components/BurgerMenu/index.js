@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Divide as Hamburger } from "hamburger-react";
-import { useRouter } from "next/router";
+import Link from "next/link";
 import styled from "styled-components";
 
 const MenuContainer = styled.div`
@@ -11,7 +11,6 @@ const MenuContainer = styled.div`
 
 const MenuList = styled.ul`
   position: absolute;
-  top: 100%;
   left: -150px;
   background-color: #6096b4;
   border: 1px solid #ccc;
@@ -40,29 +39,21 @@ const MenuItem = styled.li`
   padding-left: 150px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-
-  button {
-    background: none;
-    border: none;
-    color: inherit;
-    font-size: inherit;
-    cursor: pointer;
-  }
+`;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
 `;
 
 export default function BurgerMenu() {
-  const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
-  const handleMenuToggle = () => {
+  function handleMenuToggle() {
     setIsMenuOpen((prev) => !prev);
-  };
-
-  const handleLinkClick = (path) => {
-    setIsMenuOpen(false);
-    router.push(path);
-  };
+  }
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -92,19 +83,15 @@ export default function BurgerMenu() {
         color="#fcfbf4"
       />
       {isMenuOpen && (
-        <MenuList isOpen={isMenuOpen} ref={menuRef}>
+        <MenuList $isOpen={isMenuOpen} ref={menuRef}>
           <MenuItem>
-            <button onClick={() => handleLinkClick("/")}>Home</button>
+            <StyledLink href="/">Home</StyledLink>
           </MenuItem>
           <MenuItem>
-            <button onClick={() => handleLinkClick("/formpage")}>
-              FormPage
-            </button>
+            <StyledLink href="/formpage">FormPage</StyledLink>
           </MenuItem>
           <MenuItem>
-            <button onClick={() => handleLinkClick("/goallist")}>
-              GoalList
-            </button>
+            <StyledLink href="/goallist">GoalList</StyledLink>
           </MenuItem>
         </MenuList>
       )}

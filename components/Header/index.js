@@ -1,4 +1,4 @@
-import { HeaderBar, Headline } from "./Header.style";
+import { HeaderBar, Headline } from "./Header.styled";
 import BurgerMenu from "../BurgerMenu";
 
 export default function Header({ title }) {
