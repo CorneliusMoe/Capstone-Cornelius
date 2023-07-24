@@ -1,4 +1,4 @@
-import { GoalCardButton, GoalCards } from "./GoalCard.style";
+import { GoalCardButton, GoalCards } from "./GoalCard.styled";
 
 export default function GoalCard({ goal, onGoalClick }) {
   const { id, goalName } = goal;

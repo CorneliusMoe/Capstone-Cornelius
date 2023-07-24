@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Header from "@/components/Header";
 import GoalInput from "@/components/GoalInput";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { format } from "date-fns";

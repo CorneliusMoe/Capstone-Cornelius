@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import Header from "@/components/Header";
 import Quote from "@/components/Quote";
 
@@ -14,8 +14,9 @@ const Introduction = styled.p`
   color: #272727;
 `;
 
-const HomeButton = styled.button`
+const StyledLink = styled(Link)`
   padding: 10px 20px;
+  margin-top: 40px;
   background-color: #93bfcf;
   color: #fff;
   text-decoration: none;
@@ -39,12 +40,7 @@ export default function HomePage() {
           push you further, gives you a sense of direction, and helps you
           organize and reach your goals.
         </Introduction>
-        <Link href="/formpage">
-          <HomeButton>Be S.M.A.R.T. today</HomeButton>
-        </Link>{" "}
-        <Link href="/goallist">
-          <HomeButton>my Goals</HomeButton>
-        </Link>
+        <StyledLink href="/formpage">Be S.M.A.R.T. today</StyledLink>
       </HomeContainer>
     </>
   );
