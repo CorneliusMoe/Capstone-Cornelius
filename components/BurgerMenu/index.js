@@ -1,16 +1,44 @@
 import { useState, useEffect, useRef } from "react";
 import { Divide as Hamburger } from "hamburger-react";
 import Link from "next/link";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slideIn = keyframes`
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+`;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const slideOut = keyframes`
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+`;
 
 const MenuContainer = styled.div`
   position: relative;
-  z-index: 3;
   margin-left: auto;
+  z-index: 1;
 `;
 
 const MenuList = styled.ul`
   position: absolute;
+  top: ${({ $isOpen }) => ($isOpen ? "100%" : "-350px")};
   left: -150px;
   background-color: #6096b4;
   border: 1px solid #ccc;
@@ -22,6 +50,23 @@ const MenuList = styled.ul`
   height: 350px;
   width: 300px;
   padding-left: 0;
+  transform: ${({ $isOpen }) =>
+    $isOpen ? "translateY(0%)" : "translateY(-100%)"};
+  animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.9s ease
+      forwards,
+    ${({ $isOpen }) => ($isOpen ? fadeIn : "")} 0.9s ease forwards;
+  opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+
+  @media (max-width: 375px) {
+    width: 100vw;
+    height: 100vw;
+    left: 0;
+    border-radius: 0 0 5% 5%;
+    border: none;
+    font-size: 30px;
+    margin-top: -1px;
+    padding-top: 50px;
+  }
 `;
 
 const MenuItem = styled.li`
@@ -39,12 +84,20 @@ const MenuItem = styled.li`
   padding-left: 150px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  @media (max-width: 375px) {
+    padding-left: 0;
+    border: none;
+    background-color: #6096b4;
+  }
 `;
+
 const StyledLink = styled(Link)`
   text-decoration: none;
   color: inherit;
   font-size: inherit;
   cursor: pointer;
+  z-index: 1;
 `;
 
 export default function BurgerMenu() {
@@ -88,10 +141,10 @@ export default function BurgerMenu() {
             <StyledLink href="/">Home</StyledLink>
           </MenuItem>
           <MenuItem>
-            <StyledLink href="/formpage">FormPage</StyledLink>
+            <StyledLink href="/formpage">create</StyledLink>
           </MenuItem>
           <MenuItem>
-            <StyledLink href="/goallist">GoalList</StyledLink>
+            <StyledLink href="/goallist">my goals</StyledLink>
           </MenuItem>
         </MenuList>
       )}

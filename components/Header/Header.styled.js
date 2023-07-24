@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const HeaderBar = styled.div`
   position: sticky;
   top: 0;
-  z-index: 2;
   width: 100%;
   background-color: #6096b4;
   display: flex;
+  z-index: 2;
 `;
 
 export const Headline = styled.h1`
@@ -17,4 +17,5 @@ export const Headline = styled.h1`
   flex: 1;
   margin-right: auto;
   text-indent: -48px;
+  z-index: 2;
 `;
