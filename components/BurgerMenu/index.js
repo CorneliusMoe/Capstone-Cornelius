@@ -74,7 +74,7 @@ const MenuItem = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #bdcdd6;
+  background-color: #6096b4;
   color: #272727;
   border: 1px solid #fcfbf4;
   border-right: none;
@@ -88,13 +88,12 @@ const MenuItem = styled.li`
   @media (max-width: 375px) {
     padding-left: 0;
     border: none;
-    background-color: #6096b4;
   }
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: inherit;
+  color: #fcfbf4;
   font-size: inherit;
   cursor: pointer;
   z-index: 1;
