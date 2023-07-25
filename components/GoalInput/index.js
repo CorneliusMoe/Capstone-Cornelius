@@ -24,7 +24,7 @@ const StyledDescription = styled.p`
 `;
 
 const StyledLabel = styled.label`
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   text-align: center;
   color: #272727;

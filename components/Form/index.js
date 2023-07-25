@@ -10,6 +10,12 @@ const StyledForm = styled.form`
   flex-direction: column;
 `;
 
+const StyledButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+`;
+
 export default function Form({ addGoal, timelyOption, setTimelyOption }) {
   const router = useRouter();
 

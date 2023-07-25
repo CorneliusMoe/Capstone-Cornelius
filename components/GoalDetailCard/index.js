@@ -8,6 +8,13 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { format } from "date-fns";
 
+const StyledForm = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
+
 const StyledButton = styled.button`
   padding: 8px 16px;
   background-color: #ccc;
@@ -120,7 +127,7 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
     <>
       <Header title="my goal" />
       {isEditing ? (
-        <form onSubmit={handleSave}>
+        <StyledForm onSubmit={handleSave}>
           <Card>
             <GoalInput
               title="Be S.M.A.R.T."
@@ -202,7 +209,7 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
           </Card>
           <button type="submit">Save</button>
           <button onClick={handleCancelEdit}>Cancel</button>
-        </form>
+        </StyledForm>
       ) : (
         <>
           <section>
