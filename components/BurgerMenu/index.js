@@ -54,10 +54,10 @@ const MenuList = styled.ul`
     $isOpen ? "translateY(0%)" : "translateY(-100%)"};
   animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.9s ease
       forwards,
-    ${({ $isOpen }) => ($isOpen ? fadeIn : "")} 0.9s ease forwards;
+    ${({ $isOpen }) => ($isOpen ? fadeIn : "")} 1.1s ease forwards;
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
 
-  @media (max-width: 375px) {
+  @media (min-width: 375px) and (max-width: 768px) {
     width: 100vw;
     height: 100vw;
     left: 0;
@@ -85,7 +85,7 @@ const MenuItem = styled.li`
   cursor: pointer;
   transition: background-color 0.3s ease;
 
-  @media (max-width: 375px) {
+  @media (min-width: 375px) and (max-width: 768px) {
     padding-left: 0;
     border: none;
   }
@@ -140,10 +140,13 @@ export default function BurgerMenu() {
             <StyledLink href="/">Home</StyledLink>
           </MenuItem>
           <MenuItem>
-            <StyledLink href="/formpage">create</StyledLink>
+            <StyledLink href="/create">Create</StyledLink>
           </MenuItem>
           <MenuItem>
-            <StyledLink href="/goallist">my goals</StyledLink>
+            <StyledLink href="/goallist">My goals</StyledLink>
+          </MenuItem>
+          <MenuItem>
+            <StyledLink href="/mindfulness">Exercises</StyledLink>
           </MenuItem>
         </MenuList>
       )}
