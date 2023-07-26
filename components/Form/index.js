@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import GoalInput from "@/components/GoalInput/index";
 import { Card } from "../FormCard";
 import styled from "styled-components";
@@ -10,20 +11,30 @@ const StyledForm = styled.form`
   flex-direction: column;
 `;
 
-const StyledButtonsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-`;
-
 export default function Form({ addGoal, timelyOption, setTimelyOption }) {
   const router = useRouter();
 
+  const [formData, setFormData] = useState({
+    goalName: "",
+    specific: "",
+    measurable: "",
+    achievable: "",
+    relevant: "",
+    timely: "",
+  });
+
+  function handleFormChange(event) {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const goalData = Object.fromEntries(formData);
-    addGoal(goalData);
+    // Use formData object directly, no need to create FormData object
+    addGoal(formData);
     router.push("/goallist");
   }
 
@@ -35,6 +46,8 @@ export default function Form({ addGoal, timelyOption, setTimelyOption }) {
           description="Choose a title for your goal"
           label="What name should my goal have?"
           name="goalName"
+          value={formData.goalName}
+          onChange={handleFormChange}
         />
       </Card>
       <Card>
@@ -45,6 +58,8 @@ export default function Form({ addGoal, timelyOption, setTimelyOption }) {
   about what your goal is. You know what to do!"
           label="What is my goal?"
           name="specific"
+          value={formData.specific}
+          onChange={handleFormChange}
         />
       </Card>
       <Card>
@@ -55,6 +70,8 @@ export default function Form({ addGoal, timelyOption, setTimelyOption }) {
         how much of that thing you need before your wellbeing improves."
           label="How will I measure my progress?"
           name="measurable"
+          value={formData.measurable}
+          onChange={handleFormChange}
         />
       </Card>
       <Card>
@@ -66,6 +83,8 @@ export default function Form({ addGoal, timelyOption, setTimelyOption }) {
         halfway there."
           label="Can I achieve my goal?"
           name="achievable"
+          value={formData.achievable}
+          onChange={handleFormChange}
         />
       </Card>
       <Card>
@@ -76,6 +95,8 @@ export default function Form({ addGoal, timelyOption, setTimelyOption }) {
         long-term goals."
           label="Why is this goal important to me?"
           name="relevant"
+          value={formData.relevant}
+          onChange={handleFormChange}
         />
       </Card>
       <Card>
@@ -88,6 +109,8 @@ export default function Form({ addGoal, timelyOption, setTimelyOption }) {
           name="timely"
           timelyOption={timelyOption}
           setTimelyOption={setTimelyOption}
+          value={formData.timely}
+          onChange={handleFormChange}
         />
       </Card>
       <button type="submit">Submit</button>

@@ -1,9 +1,12 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const StyledFieldset = styled.fieldset`
   border: none;
   padding: 20px;
   margin: 0;
+  height: 100%;
+  width: 100%;
 `;
 
 const StyledLegend = styled.legend`
@@ -13,7 +16,6 @@ const StyledLegend = styled.legend`
   color: #272727;
   margin-bottom: 10px;
   border-bottom: 3px solid #eee9da;
-  border-radius: 10px;
 `;
 
 const StyledDescription = styled.p`
@@ -64,6 +66,13 @@ const StyledTextInput = styled.input`
   }
 `;
 
+const StyledCharacterCount = styled.div`
+  font-size: 12px;
+  text-align: right;
+  color: #7d7d7d;
+  margin-top: 5px;
+`;
+
 export default function GoalInput({
   title,
   description,
@@ -74,9 +83,52 @@ export default function GoalInput({
   timelyOption,
   setTimelyOption,
 }) {
+  const characterLimits = {
+    goalName: 50,
+    specific: 100,
+    measurable: 100,
+    achievable: 100,
+    relevant: 100,
+    timely: 100,
+  };
+
+  const [characterCount, setCharacterCount] = useState(
+    value ? value.length : 0
+  );
+
+  const [timelyCharacterCount, setTimelyCharacterCount] = useState(
+    value && timelyOption === "text" ? value.length : 0
+  );
+
+  useEffect(() => {
+    if (value) {
+      setCharacterCount(value.length);
+    }
+  }, [value]);
+
+  useEffect(() => {
+    if (timelyOption === "text" && value) {
+      setTimelyCharacterCount(value.length);
+    }
+  }, [timelyOption, value]);
+
+  function handleInputChange(event) {
+    const { name, value } = event.target;
+    const maxLength = characterLimits[name];
+    const truncatedValue = value.slice(0, maxLength);
+    onChange({ target: { name, value: truncatedValue } });
+    if (name === "timely" && timelyOption === "text") {
+      setTimelyCharacterCount(truncatedValue.length);
+    }
+  }
+
   function handleTimelyOptionChange(event) {
     const { value } = event.target;
     setTimelyOption(value);
+    if (value === "text") {
+      onChange({ target: { name: "timely", value: "" } });
+      setTimelyCharacterCount(0);
+    }
   }
   const currentDate = new Date().toISOString().split("T")[0];
 
@@ -111,7 +163,8 @@ export default function GoalInput({
           id={name}
           name={name}
           value={value}
-          onChange={onChange}
+          onChange={handleInputChange}
+          maxLength={characterLimits[name]}
           required
         />
       )}
@@ -132,9 +185,20 @@ export default function GoalInput({
           id={name}
           name={name}
           value={value}
-          onChange={onChange}
+          onChange={handleInputChange}
+          maxLength={characterLimits[name]}
           required
         />
+      )}
+      {name === "timely" && timelyOption === "text" && (
+        <StyledCharacterCount>
+          Characters left: {characterLimits[name] - timelyCharacterCount}
+        </StyledCharacterCount>
+      )}
+      {name !== "timely" && (
+        <StyledCharacterCount>
+          Characters left: {characterLimits[name] - characterCount}
+        </StyledCharacterCount>
       )}
     </StyledFieldset>
   );
