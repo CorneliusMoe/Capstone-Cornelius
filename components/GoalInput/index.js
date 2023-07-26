@@ -189,7 +189,10 @@ export default function GoalInput({
           id={name}
           name={name}
           value={value}
-          onChange={handleInputChange}
+          onChange={(event) => {
+            handleInputChange(event);
+            adjustTextareaHeight(event);
+          }}
           maxLength={characterLimits[name]}
           required
         />
@@ -213,7 +216,7 @@ export default function GoalInput({
           value={value}
           onChange={(event) => {
             handleInputChange(event);
-            adjustTextareaHeight(event); // Adjust the height on every input change
+            adjustTextareaHeight(event);
           }}
           maxLength={characterLimits[name]}
           required
