@@ -49,7 +49,28 @@ const StyledRadioLabel = styled.span`
   color: #272727;
 `;
 
-const StyledTextInput = styled.input`
+const StyledTextInput = styled.textarea`
+  width: 100%;
+  padding: 5px;
+  font-size: 16px;
+  height: auto;
+  resize: none;
+  font-family: system-ui;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+
+  :focus {
+    border-color: #6096b4;
+  }
+`;
+
+const StyledDateInput = styled.input`
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -132,6 +153,11 @@ export default function GoalInput({
   }
   const currentDate = new Date().toISOString().split("T")[0];
 
+  function adjustTextareaHeight(event) {
+    event.target.style.height = "auto";
+    event.target.style.height = `${event.target.scrollHeight}px`;
+  }
+
   return (
     <StyledFieldset>
       <StyledLegend>{title}</StyledLegend>
@@ -169,7 +195,7 @@ export default function GoalInput({
         />
       )}
       {name === "timely" && timelyOption === "date" && (
-        <StyledTextInput
+        <StyledDateInput
           type="date"
           id={name}
           name={name}
@@ -185,7 +211,10 @@ export default function GoalInput({
           id={name}
           name={name}
           value={value}
-          onChange={handleInputChange}
+          onChange={(event) => {
+            handleInputChange(event);
+            adjustTextareaHeight(event); // Adjust the height on every input change
+          }}
           maxLength={characterLimits[name]}
           required
         />

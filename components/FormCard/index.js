@@ -7,7 +7,7 @@ const CardContainer = styled.div`
   min-width: 350px;
   max-width: 350px;
   min-height: 233px;
-  max-height: 350px;
+  max-height: 500px;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
