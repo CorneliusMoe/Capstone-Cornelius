@@ -1,6 +1,6 @@
-import Link from "next/link";
 import GoalCard from "../../components/GoalCard";
 import Header from "@/components/Header";
+import Footer from "@/components/GeneralFooter";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
@@ -33,7 +33,7 @@ export default function GoalList({ goals, deleteGoal, updateGoal }) {
           updateGoal={updateGoal}
         />
       ))}
-      <Link href="/">Back to Homepage</Link>
+      <Footer />
     </GoalListContainer>
   );
 }

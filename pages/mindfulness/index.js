@@ -1,13 +1,16 @@
+import { exercises } from "@/lib/exercises";
 import { useState } from "react";
 import styled from "styled-components";
 import Header from "@/components/Header";
-import { exercises } from "@/lib/exercises";
+import Footer from "@/components/GeneralFooter";
+
 import MindfulnessCard from "@/components/MindfulnessCard";
 
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 75px;
 `;
 
 const FilterContainer = styled.div`
@@ -82,6 +85,7 @@ export default function MindfulnessPage() {
           category={exercise.category}
         />
       ))}
+      <Footer />
     </PageContainer>
   );
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Divide as Hamburger } from "hamburger-react";
-import Link from "next/link";
 import styled, { keyframes } from "styled-components";
+import Link from "next/link";
 
 const slideIn = keyframes`
   from {
