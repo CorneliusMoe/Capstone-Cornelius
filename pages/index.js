@@ -7,6 +7,9 @@ const HomeContainer = styled.main`
   text-align: center;
   margin: 0 auto;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const Introduction = styled.p`
@@ -17,15 +20,13 @@ const Introduction = styled.p`
 
 const StyledLink = styled(Link)`
   padding: 10px 20px;
-  margin-top: 40px;
-  background-color: #93bfcf;
-  color: #fff;
+  margin: auto 10px 10px 10px;
+  background-color: #6096b4;
+  color: #fcfbf4;
   text-decoration: none;
-  border-radius: 4px;
-  font-size: 16px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #272727;
+  font-weight: bold;
+  font-size: 38px;
+  border-radius: 10px;
   cursor: pointer;
 `;
 
@@ -41,7 +42,7 @@ export default function HomePage() {
           push you further, gives you a sense of direction, and helps you
           organize and reach your goals.
         </Introduction>
-        <StyledLink href="/create">Be S.M.A.R.T. today</StyledLink>
+        <StyledLink href="/create">be S.M.A.R.T. today</StyledLink>
       </HomeContainer>
     </>
   );
