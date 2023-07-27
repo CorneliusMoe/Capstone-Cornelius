@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Header from "@/components/Header";
 import GoalInput from "@/components/GoalInput";
-import { Card } from "../FormCard";
+import Card from "@/components/FormCard";
+import GoalDetailFooter from "@/components/GoalDetailFooter";
 import styled from "styled-components";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -45,10 +46,6 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editedGoal, setEditedGoal] = useState(goal);
   const router = useRouter();
-
-  function handleEdit() {
-    setIsEditing(true);
-  }
 
   function handleTimelyOptionChangeWrapper(value) {
     setEditedGoal((prevGoal) => ({
@@ -127,7 +124,7 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
     <>
       <Header title="my goal" />
       {isEditing ? (
-        <StyledForm onSubmit={handleSave}>
+        <StyledForm id="form1" onSubmit={handleSave}>
           <Card>
             <GoalInput
               title="Be S.M.A.R.T."
@@ -227,9 +224,11 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
               <dd>{formattedTimely}</dd>
             </dl>
           </section>
-          <StyledButton onClick={handleGoBack}>Back to my Goals</StyledButton>
-          <StyledButton onClick={handleDelete}>Delete Goal</StyledButton>
-          <StyledButton onClick={handleEdit}>Edit</StyledButton>
+          <GoalDetailFooter
+            onBack={handleGoBack}
+            onDelete={handleDelete}
+            onEdit={() => setIsEditing(true)}
+          />
         </>
       )}
     </>

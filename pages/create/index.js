@@ -1,6 +1,6 @@
 import Form from "@/components/Form";
 import Header from "@/components/Header";
-import FooterFormPage from "@/components/FormFooter";
+import FooterFormPage from "@/components/FooterFormPage";
 import { useRouter } from "next/router";
 
 export default function FormPage({ addGoal, timelyOption, setTimelyOption }) {

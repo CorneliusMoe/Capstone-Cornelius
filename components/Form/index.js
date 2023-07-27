@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import GoalInput from "@/components/GoalInput/index";
-import FooterFormPage from "../FormFooter";
 import Card from "../FormCard";
 import styled from "styled-components";
 
