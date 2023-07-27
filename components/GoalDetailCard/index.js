@@ -2,10 +2,18 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Header from "@/components/Header";
 import GoalInput from "@/components/GoalInput";
+import { Card } from "../FormCard";
 import styled from "styled-components";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import { format } from "date-fns";
+
+const StyledForm = styled.form`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`;
 
 const StyledButton = styled.button`
   padding: 8px 16px;
@@ -119,77 +127,89 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
     <>
       <Header title="my goal" />
       {isEditing ? (
-        <form onSubmit={handleSave}>
-          <GoalInput
-            title="Be S.M.A.R.T."
-            description="Choose a title for your goal"
-            label="What should the title of my goal be?"
-            name="goalName"
-            value={editedGoal.goalName}
-            onChange={handleInputChange}
-            required
-          />
-          <GoalInput
-            title="Specific"
-            description="Specific goals make it harder to get stuck and easier to get started.
+        <StyledForm onSubmit={handleSave}>
+          <Card>
+            <GoalInput
+              title="Be S.M.A.R.T."
+              description="Choose a title for your goal"
+              label="What should the title of my goal be?"
+              name="goalName"
+              value={editedGoal.goalName}
+              onChange={handleInputChange}
+              required
+            />
+          </Card>
+          <Card>
+            <GoalInput
+              title="Specific"
+              description="Specific goals make it harder to get stuck and easier to get started.
         Review this section if you feel yourself getting off track. Be clear
         about what your goal is. You know what to do!"
-            label="What is my goal?"
-            name="specific"
-            value={editedGoal.specific}
-            onChange={handleInputChange}
-            required
-          />
-          <GoalInput
-            title="Measurable"
-            description="Measurable goals show you where you're going and how to track
+              label="What is my goal?"
+              name="specific"
+              value={editedGoal.specific}
+              onChange={handleInputChange}
+              required
+            />
+          </Card>
+          <Card>
+            <GoalInput
+              title="Measurable"
+              description="Measurable goals show you where you're going and how to track
               your progress. Ask yourself what can improve your mental wellbeing and
               how much of that thing you need before your wellbeing improves."
-            label="How will I measure my progress?"
-            name="measurable"
-            value={editedGoal.measurable}
-            onChange={handleInputChange}
-            required
-          />
-          <GoalInput
-            title="Achievable"
-            description="Achievable goals ensure that you don't push yourself too hard or
+              label="How will I measure my progress?"
+              name="measurable"
+              value={editedGoal.measurable}
+              onChange={handleInputChange}
+              required
+            />
+          </Card>
+          <Card>
+            <GoalInput
+              title="Achievable"
+              description="Achievable goals ensure that you don't push yourself too hard or
                try to achieve something out of your control. Break up your larger
                goals into smaller ones. Once you know you can do it you're
                halfway there."
-            label="Can I achieve my goal?"
-            name="achievable"
-            value={editedGoal.achievable}
-            onChange={handleInputChange}
-            required
-          />
-          <GoalInput
-            title="Relevant"
-            description=" Relevant goals are important both now and later. They allow you to
+              label="Can I achieve my goal?"
+              name="achievable"
+              value={editedGoal.achievable}
+              onChange={handleInputChange}
+              required
+            />
+          </Card>
+          <Card>
+            <GoalInput
+              title="Relevant"
+              description=" Relevant goals are important both now and later. They allow you to
               succeed while staying true to your values and will help you meet more
               long-term goals."
-            label="Why is this goal important to me?"
-            name="relevant"
-            value={editedGoal.relevant}
-            onChange={handleInputChange}
-            required
-          />
-          <GoalInput
-            title="Timely"
-            description="Timely goals are well-structured with a beginning and end-date. Try
+              label="Why is this goal important to me?"
+              name="relevant"
+              value={editedGoal.relevant}
+              onChange={handleInputChange}
+              required
+            />
+          </Card>
+          <Card>
+            <GoalInput
+              title="Timely"
+              description="Timely goals are well-structured with a beginning and end-date. Try
               not to be vague about the time in which you should achieve your goal.
               Be specific, this keeps you accountable and focused."
-            label="When will I achieve my goal?"
-            name="timely"
-            value={editedGoal.timely}
-            onChange={handleInputChange}
-            timelyOption={editedGoal.timelyOption}
-            setTimelyOption={handleTimelyOptionChangeWrapper}
-            required
-          />
+              label="When will I achieve my goal?"
+              name="timely"
+              value={editedGoal.timely}
+              onChange={handleInputChange}
+              timelyOption={editedGoal.timelyOption}
+              setTimelyOption={handleTimelyOptionChangeWrapper}
+              required
+            />
+          </Card>
           <button type="submit">Save</button>
           <button onClick={handleCancelEdit}>Cancel</button>
-        </form>
+        </StyledForm>
       ) : (
         <>
           <section>
