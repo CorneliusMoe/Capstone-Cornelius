@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import GoalInput from "@/components/GoalInput/index";
-import { Card } from "../FormCard";
+import FooterFormPage from "../FormFooter";
+import Card from "../FormCard";
 import styled from "styled-components";
 
 const StyledForm = styled.form`
@@ -33,13 +34,12 @@ export default function Form({ addGoal, timelyOption, setTimelyOption }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // Use formData object directly, no need to create FormData object
     addGoal(formData);
     router.push("/goallist");
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm id="form1" onSubmit={handleSubmit}>
       <Card>
         <GoalInput
           title="Be S.M.A.R.T."
@@ -113,7 +113,6 @@ export default function Form({ addGoal, timelyOption, setTimelyOption }) {
           onChange={handleFormChange}
         />
       </Card>
-      <button type="submit">Submit</button>
     </StyledForm>
   );
 }
