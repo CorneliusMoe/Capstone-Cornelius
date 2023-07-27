@@ -2,8 +2,12 @@ import styled from "styled-components";
 import SvgIcon from "../Icons";
 
 const FooterContainer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   background-color: #6096b4;
   padding: 10px;

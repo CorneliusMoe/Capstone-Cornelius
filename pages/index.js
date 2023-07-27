@@ -6,6 +6,7 @@ import Quote from "@/components/Quote";
 const HomeContainer = styled.main`
   text-align: center;
   margin: 0 auto;
+  min-height: 100vh;
 `;
 
 const Introduction = styled.p`
