@@ -11,6 +11,7 @@ const FooterContainer = styled.footer`
   align-items: center;
   background-color: #6096b4;
   padding: 10px;
+  height: 48px;
 `;
 
 const IconButton = styled.button`

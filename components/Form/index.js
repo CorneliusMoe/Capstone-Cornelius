@@ -9,7 +9,7 @@ const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 75px;
+  margin-bottom: 48px;
 `;
 
 export default function Form({ addGoal, timelyOption, setTimelyOption }) {
