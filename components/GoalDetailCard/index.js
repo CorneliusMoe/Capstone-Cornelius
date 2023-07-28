@@ -66,6 +66,9 @@ const StyledDescriptionContainer = styled.div`
 
 const StyledDescription = styled.dt`
   background-color: #6096b4;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fcfbf4;
   align-items: center;
 `;
 
