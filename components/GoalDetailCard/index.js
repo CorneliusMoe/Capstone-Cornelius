@@ -14,8 +14,74 @@ const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 75px;
+  margin-bottom: 60px;
   min-height: 100vh;
+`;
+
+const StyledGoalDetailWrapper = styled.main`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-bottom: 40px;
+`;
+
+const StyledHeadline = styled.h2`
+  font-size: 24px;
+  color: #272727;
+  background-color: #eee9da;
+`;
+
+const StyledDescriptionList = styled.dl`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+`;
+
+const StyledDescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 700px;
+  max-width: 800px;
+  height: 40px;
+  background-color: #6096b4;
+
+  @media (min-width: 375px) and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    max-width: 800px;
+    height: 40px;
+    background-color: #6096b4;
+  }
+`;
+
+const StyledDescription = styled.dt`
+  background-color: #6096b4;
+  align-items: center;
+`;
+
+const StyledDescribedItemContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 55px;
+  background-color: #eee9da;
+`;
+
+const StyledDescribedItem = styled.dd`
+  background-color: #eee9da;
+  margin: 10px 0 10px 0;
 `;
 
 export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
@@ -196,29 +262,48 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
           <GoalDetailFooter onCancel={handleCancelEdit} isEditing={isEditing} />
         </StyledForm>
       ) : (
-        <>
-          <section>
-            <h2>{goalName}</h2>
-            <dl>
-              <dt>Specific</dt>
-              <dd>{specific}</dd>
-              <dt>Measurable</dt>
-              <dd>{measurable}</dd>
-              <dt>Achievable</dt>
-              <dd>{achievable}</dd>
-              <dt>Relevant</dt>
-              <dd>{relevant}</dd>
-              <dt>Timely</dt>
-              <dd>{formattedTimely}</dd>
-            </dl>
-          </section>
+        <StyledGoalDetailWrapper>
+          <StyledHeadline>{goalName}</StyledHeadline>
+          <StyledDescriptionList>
+            <StyledDescriptionContainer>
+              <StyledDescription>Specific</StyledDescription>
+            </StyledDescriptionContainer>
+            <StyledDescribedItemContainer>
+              <StyledDescribedItem>{specific}</StyledDescribedItem>
+            </StyledDescribedItemContainer>
+            <StyledDescriptionContainer>
+              <StyledDescription>Measurable</StyledDescription>
+            </StyledDescriptionContainer>
+            <StyledDescribedItemContainer>
+              <StyledDescribedItem>{measurable}</StyledDescribedItem>
+            </StyledDescribedItemContainer>
+            <StyledDescriptionContainer>
+              <StyledDescription>Achievable</StyledDescription>
+            </StyledDescriptionContainer>
+            <StyledDescribedItemContainer>
+              <StyledDescribedItem>{achievable}</StyledDescribedItem>
+            </StyledDescribedItemContainer>
+            <StyledDescriptionContainer>
+              <StyledDescription>Relevant</StyledDescription>
+            </StyledDescriptionContainer>
+            <StyledDescribedItemContainer>
+              <StyledDescribedItem>{relevant}</StyledDescribedItem>
+            </StyledDescribedItemContainer>
+            <StyledDescriptionContainer>
+              <StyledDescription>Timely</StyledDescription>
+            </StyledDescriptionContainer>
+            <StyledDescribedItemContainer>
+              <StyledDescribedItem>{formattedTimely}</StyledDescribedItem>
+            </StyledDescribedItemContainer>
+          </StyledDescriptionList>
+
           <GoalDetailFooter
             onBack={handleGoBack}
             onDelete={handleDelete}
             onEdit={handleEdit}
             isEditing={isEditing}
           />
-        </>
+        </StyledGoalDetailWrapper>
       )}
     </>
   );

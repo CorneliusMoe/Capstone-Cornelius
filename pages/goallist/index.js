@@ -8,6 +8,13 @@ const GoalListContainer = styled.main`
   text-align: center;
   margin: 0 auto;
   min-height: 100vh;
+  margin-bottom: 48px;
+`;
+
+const StyledHeadline = styled.h2`
+  color: #272727;
+  margin: 10px;
+  font-size: 20px;
 `;
 
 export default function GoalList({ goals, deleteGoal, updateGoal }) {
@@ -24,6 +31,7 @@ export default function GoalList({ goals, deleteGoal, updateGoal }) {
   return (
     <GoalListContainer>
       <Header title="my goals" />
+      <StyledHeadline>Select a goal to see its details</StyledHeadline>
       {goals.map((goal) => (
         <GoalCard
           key={goal.id}

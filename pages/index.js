@@ -64,7 +64,6 @@ const StyledLink = styled(Link)`
   border-radius: 10px;
   font-size: 24px;
   font-weight: bold;
-  cursor: pointer;
   transition: background-color 0.3s ease-in-out;
 
   &:hover {

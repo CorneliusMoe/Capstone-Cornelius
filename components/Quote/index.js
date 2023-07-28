@@ -9,12 +9,11 @@ const QuoteCardWrapper = styled.div`
 
 const QuoteCard = styled.section`
   position: relative;
-  font-family: "Montserrat", sans-serif;
+  font-family: sans-serif;
   font-weight: 800;
   color: #93bfcf;
   padding: 30px 0;
   width: 100%;
-  max-width: 500px;
   z-index: 1;
   margin: 80px auto;
   align-self: center;
@@ -67,7 +66,10 @@ const fetcher = async (url) => {
 export default function Quote() {
   const { data, error } = useSWR(
     "https://api.quotable.io/quotes/random?tags=motivational|future?minLength=30&maxLength=50",
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: false,
+    }
   );
 
   if (error)
