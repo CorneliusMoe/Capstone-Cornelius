@@ -25,7 +25,6 @@ const StyledCard = styled.section`
 const StyledTitle = styled.h2`
   color: #272727;
   border-bottom: 3px solid #eee9da;
-  border-radius: 10px;
   margin-top: 0;
   margin-bottom: 0;
 `;

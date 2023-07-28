@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Header from "@/components/Header";
 import GoalInput from "@/components/GoalInput";
-import { Card } from "../FormCard";
+import Card from "@/components/FormCard";
+import GoalDetailFooter from "@/components/GoalDetailFooter";
 import styled from "styled-components";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
@@ -13,23 +14,8 @@ const StyledForm = styled.form`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-`;
-
-const StyledButton = styled.button`
-  padding: 8px 16px;
-  background-color: #ccc;
-  border: none;
-  color: #fff;
-  font-weight: bold;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #aaa;
-  }
-
-  &:focus {
-    outline: none;
-  }
+  margin-bottom: 75px;
+  min-height: 100vh;
 `;
 
 export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
@@ -46,16 +32,16 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
   const [editedGoal, setEditedGoal] = useState(goal);
   const router = useRouter();
 
-  function handleEdit() {
-    setIsEditing(true);
-  }
-
   function handleTimelyOptionChangeWrapper(value) {
     setEditedGoal((prevGoal) => ({
       ...prevGoal,
       timelyOption: value,
       timely: value === "text" ? "" : prevGoal.timely,
     }));
+  }
+
+  function handleEdit() {
+    setIsEditing(true);
   }
 
   function handleSave(event) {
@@ -127,7 +113,7 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
     <>
       <Header title="my goal" />
       {isEditing ? (
-        <StyledForm onSubmit={handleSave}>
+        <StyledForm id="form1" onSubmit={handleSave}>
           <Card>
             <GoalInput
               title="Be S.M.A.R.T."
@@ -207,8 +193,7 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
               required
             />
           </Card>
-          <button type="submit">Save</button>
-          <button onClick={handleCancelEdit}>Cancel</button>
+          <GoalDetailFooter onCancel={handleCancelEdit} isEditing={isEditing} />
         </StyledForm>
       ) : (
         <>
@@ -227,9 +212,12 @@ export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {
               <dd>{formattedTimely}</dd>
             </dl>
           </section>
-          <StyledButton onClick={handleGoBack}>Back to my Goals</StyledButton>
-          <StyledButton onClick={handleDelete}>Delete Goal</StyledButton>
-          <StyledButton onClick={handleEdit}>Edit</StyledButton>
+          <GoalDetailFooter
+            onBack={handleGoBack}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
+            isEditing={isEditing}
+          />
         </>
       )}
     </>

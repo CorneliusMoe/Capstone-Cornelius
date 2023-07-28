@@ -14,6 +14,6 @@ const CardContainer = styled.div`
   align-items: center;
 `;
 
-export const Card = ({ children }) => {
+export default function Card({ children }) {
   return <CardContainer>{children}</CardContainer>;
-};
+}

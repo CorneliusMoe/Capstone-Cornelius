@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Divide as Hamburger } from "hamburger-react";
-import Link from "next/link";
 import styled, { keyframes } from "styled-components";
+import Link from "next/link";
 
 const slideIn = keyframes`
   from {
@@ -52,9 +52,9 @@ const MenuList = styled.ul`
   padding-left: 0;
   transform: ${({ $isOpen }) =>
     $isOpen ? "translateY(0%)" : "translateY(-100%)"};
-  animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.9s ease
+  animation: ${({ $isOpen }) => ($isOpen ? slideIn : slideOut)} 0.7s ease
       forwards,
-    ${({ $isOpen }) => ($isOpen ? fadeIn : "")} 1.1s ease forwards;
+    ${({ $isOpen }) => ($isOpen ? fadeIn : "")} 0.6s ease forwards;
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
 
   @media (min-width: 375px) and (max-width: 768px) {
