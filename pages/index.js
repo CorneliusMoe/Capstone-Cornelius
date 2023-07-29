@@ -43,6 +43,7 @@ const ListItem = styled.li`
   margin-bottom: 10px;
   position: relative;
   padding-left: 30px;
+  color: #272727;
 
   &::before {
     content: "💭";
