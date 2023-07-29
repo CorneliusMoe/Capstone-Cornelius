@@ -69,7 +69,6 @@ const StyledDescription = styled.dt`
   font-weight: bold;
   letter-spacing: 1px;
   color: #fcfbf4;
-  align-items: center;
 `;
 
 const StyledDescribedItemContainer = styled.div`
@@ -84,7 +83,7 @@ const StyledDescribedItemContainer = styled.div`
 
 const StyledDescribedItem = styled.dd`
   background-color: #eee9da;
-  margin: 10px 0 10px 0;
+  margin: 10px 0;
 `;
 
 export default function GoalDetailCard({ goal, deleteGoal, updateGoal }) {

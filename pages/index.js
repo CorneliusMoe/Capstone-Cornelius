@@ -66,10 +66,6 @@ const StyledLink = styled(Link)`
   font-size: 24px;
   font-weight: bold;
   transition: background-color 0.3s ease-in-out;
-
-  &:hover {
-    background-color: #93bfcf;
-  }
 `;
 
 export default function HomePage() {
