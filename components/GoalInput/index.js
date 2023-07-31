@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 
 const StyledFieldset = styled.fieldset`
@@ -121,6 +121,27 @@ export default function GoalInput({
     value && timelyOption === "text" ? value.length : 0
   );
 
+  const textareaRef = useRef(null);
+
+  function handleTextareaFocus() {
+    if (textareaRef.current) {
+      textareaRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }
+
+  useEffect(() => {
+    const textareaElement = textareaRef.current;
+    if (textareaElement) {
+      textareaElement.addEventListener("focus", handleTextareaFocus);
+    }
+    return () => {
+      textareaElement.removeEventListener("focus", handleTextareaFocus);
+    };
+  }, []);
+
   useEffect(() => {
     if (value) {
       setCharacterCount(value.length);
@@ -195,6 +216,7 @@ export default function GoalInput({
           }}
           maxLength={characterLimits[name]}
           required
+          ref={textareaRef}
         />
       )}
       {name === "timely" && timelyOption === "date" && (
@@ -206,6 +228,7 @@ export default function GoalInput({
           onChange={onChange}
           required
           min={currentDate}
+          ref={textareaRef}
         />
       )}
       {name !== "timely" && (
@@ -220,6 +243,7 @@ export default function GoalInput({
           }}
           maxLength={characterLimits[name]}
           required
+          ref={textareaRef}
         />
       )}
       {name === "timely" && timelyOption === "text" && (

@@ -10,7 +10,7 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 75px;
+  margin-bottom: 48px;
 `;
 
 const FilterContainer = styled.div`

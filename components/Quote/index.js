@@ -9,12 +9,11 @@ const QuoteCardWrapper = styled.div`
 
 const QuoteCard = styled.section`
   position: relative;
-  font-family: "Montserrat", sans-serif;
+  font-family: sans-serif;
   font-weight: 800;
   color: #93bfcf;
   padding: 30px 0;
   width: 100%;
-  max-width: 500px;
   z-index: 1;
   margin: 80px auto;
   align-self: center;
@@ -35,7 +34,7 @@ const QuoteCard = styled.section`
 const StyledQuote = styled.h2`
   position: relative;
   color: #6096b4;
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 800;
   line-height: 1;
   margin: 0;
@@ -53,21 +52,38 @@ const StyledAuthor = styled.h3`
   z-index: 1;
 `;
 
+const fallbackQuotes = [
+  {
+    id: 1,
+    content:
+      "No matter how difficult the past, you can always begin again today.",
+    author: "Jack Kornfield",
+  },
+];
+
 const fetcher = async (url) => {
-  const response = await fetch(url);
-  if (!response.ok) {
-    const error = new Error("Failed to fetch data");
-    error.info = await response.json();
-    error.status = response.status;
-    throw error;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      const error = new Error("Failed to fetch data");
+      error.info = await response.json();
+      error.status = response.status;
+      throw error;
+    }
+    return response.json();
+  } catch (error) {
+    return fallbackQuotes;
   }
-  return response.json();
 };
 
 export default function Quote() {
   const { data, error } = useSWR(
     "https://api.quotable.io/quotes/random?tags=motivational|future?minLength=30&maxLength=50",
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      fallbackData: fallbackQuotes,
+    }
   );
 
   if (error)

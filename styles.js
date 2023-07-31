@@ -17,7 +17,8 @@ export default createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: system-ui;
+    min-height: 100vh;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-color: #EEE9DA
   }
 `;
