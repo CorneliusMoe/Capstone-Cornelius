@@ -59,6 +59,7 @@ const ListItem = styled.li`
 
 const StyledLink = styled(Link)`
   padding: 10px 20px;
+  margin-bottom: 10px;
   background-color: #6096b4;
   color: #fcfbf4;
   text-decoration: none;
