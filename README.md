@@ -1,4 +1,41 @@
-# New Next Project
+# be S.M.A.R.T.
+
+Introducing "be S.M.A.R.T.": Your app for setting and achieving goals with mindfulness and mental well-being as top priorities. Stay organized, focused, and balanced as you pursue your goals. Simplify your path to success with this powerful and intuitive tool, designed to be your smart companion for everyday tasks and long-term achievements.
+
+This app was my final project for the Web Development Bootcamp at neue Fische.
+
+---
+
+### Deployment
+
+You can have a look at the last update of be S.M.A.R.T. on Vercel: [DemoVersion](https://capstone-be-smart.vercel.app) <br>
+Note: The App is optimized for mobile screen.
+
+---
+
+### Tech Stack
+
+- React
+- React Hooks
+- Next.js
+- styled-components
+- uid
+- mdi Pictogrammers
+- react-confirm-alert
+- react-burger-menu
+- date-fns
+- useSWR
+- Quotable Api
+
+---
+
+### Project Setup
+
+- Clone this repository
+- Install all dependencies using `npm install`
+- Run app in development mode using `npm run dev`, and open [http://localhost:3000/](http://localhost:3000/)
+
+---
 
 This project was created from the neue fische `next` template.
 
@@ -8,30 +45,4 @@ You can [🔗 **use this template on CodeSandbox**](https://codesandbox.io/p/san
 npx -y ghcd@latest neuefische/web-exercises/tree/main/templates/next my-app -i
 ```
 
-## Development
 
-### Local Development
-
-To work locally, please install the dependencies using `npm i` first.
-
-Run `npm run dev` to start a development server and open the displayed URL in a browser.
-
-Use `npm run test` to run the tests.
-
-### CodeSandbox Cloud
-
-Select the "Preview: 3000" tab to view this project.
-
-Select the "Tests: logs" tab to view the tests.
-
-> The `npm run dev` and `npm run test` scripts run automatically.
-
-### Scripts
-
-You can use the following commands:
-
-- `npm run dev` to start a development server
-- `npm run build` to build the project
-- `npm run start` to start a production server
-- `npm run test` to run the tests
-- `npm run lint` to run the linter
