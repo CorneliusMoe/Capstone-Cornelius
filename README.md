@@ -2,7 +2,11 @@
 
 ![App screens](/public/capstone_design.png)
 
-Introducing "be S.M.A.R.T.": Your app for setting and achieving goals with mindfulness and mental well-being as top priorities. Stay organized, focused, and balanced as you pursue your goals. Simplify your path to success with this powerful and intuitive tool, designed to be your smart companion for everyday tasks and long-term achievements. The User can create, edit and delete goals and view mindful exercises to get inspired
+Introducing "be S.M.A.R.T.": Your app for setting and achieving goals with mindfulness and mental well-being as top priorities. Stay organized, focused, and balanced as you pursue your goals. Simplify your path to success with this powerful and intuitive tool, designed to be your smart companion for everyday tasks and long-term achievements.
+
+The User can create, edit and delete goals and view mindful exercises to get inspired
+
+![App Preview](/public/cornelius_moerig2.gif)
 
 This app was my final project for the Web Development Bootcamp at neue Fische.
 
